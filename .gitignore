@@ -5,6 +5,7 @@
 bin/
 gen/
 build/
+out/
 
 # Eclipse project files
 .classpath
