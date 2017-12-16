@@ -1,34 +1,18 @@
 package mx.unam.fciencias.myp;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.AffineTransform;
 import java.util.HashMap;
 
-class DemoOne extends JPanel {
+class DemoOne extends Demo {
     private int lines;
 
     DemoOne(int lines) {
         super();
         this.lines = lines;
+        this.title = "Drawing curves with lines 1";
     }
 
-    @Override
-    public Dimension getPreferredSize() {
-        return new Dimension(getOrigin().getX() * 2, getOrigin().getY() * 2);
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        drawQuadrant(g, getOrigin());
-    }
-
-    private ImmutablePoint getOrigin() {
-        return new ImmutablePoint(getWidth() / 2, getHeight() / 2);
-    }
-
-    private void drawQuadrant(Graphics g, ImmutablePoint origin) {
+    protected void draw(Graphics g, ImmutablePoint origin) {
         // Calculate delta
         int delta = origin.getX() / lines;
         ImmutablePoint start = new ImmutablePoint(origin.getX(), origin.getY());
@@ -40,7 +24,7 @@ class DemoOne extends JPanel {
         colorHashMap.put(270, new Color(81, 129, 255, 185));
         for (int theta = 0; theta <= 360; theta += 90) {
             quadrant_origin = origin.translate(origin.getX() / 2, -origin.getY() / 2).rotate(theta, origin);
-            for (int i = 1; i < lines; i++) {
+            for (int i = 1; i <= lines; i++) {
                 int dif = delta * i;
                 // Inner
                 g.setColor(Color.RED);
