@@ -9,13 +9,13 @@ public class DemoThree extends Demo {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        draw(g, new ImmutablePoint(0, 0));
+    protected ImmutablePoint getOrigin() {
+        return new ImmutablePoint(0, 0);
     }
 
     @Override
-    protected void draw(Graphics g, ImmutablePoint origin) {
+    protected void draw(Graphics g) {
+        ImmutablePoint origin = getOrigin();
         Color[] colors = {Color.WHITE, Color.BLACK};
         int side = Integer.min(getWidth(), getHeight()) / 8;
         ImmutablePoint corner;
@@ -28,7 +28,7 @@ public class DemoThree extends Demo {
                 } else {
                     g.setColor(evenCol ? colors[1] : colors[0]);
                 }
-                corner = new ImmutablePoint(row * side, col * side);
+                corner = origin.translate(row * side, col * side);
                 g.fillRect(corner.getX(), corner.getY(), side, side);
             }
         }

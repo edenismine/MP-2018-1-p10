@@ -12,7 +12,13 @@ class DemoTwo extends Demo {
         this.title = "Drawing curves with lines 2";
     }
 
-    protected void draw(Graphics g, ImmutablePoint origin) {
+    @Override
+    protected ImmutablePoint getOrigin() {
+        return getCenter();
+    }
+
+    protected void draw(Graphics g) {
+        ImmutablePoint origin = getOrigin();
         double factor = 0.7;
         g.setColor(Color.MAGENTA);
         // Calculate delta
@@ -35,8 +41,8 @@ class DemoTwo extends Demo {
                 int[] angles = {90, 270};
                 for (int j : angles) {
                     g.setColor(colorHashMap.get(j));
-                    p3 = p1.rotate(j, quadrant_origin).scale(factor, getOrigin()).translate((int) (-factor * getOrigin().getX()), (int) (-factor * getOrigin().getY()));
-                    p4 = p2.rotate(j, quadrant_origin).scale(factor, getOrigin()).translate((int) (-factor * getOrigin().getX()), (int) (-factor * getOrigin().getY()));
+                    p3 = p1.rotate(j, quadrant_origin).scale(factor, getCenter()).translate((int) (-factor * getCenter().getX()), (int) (-factor * getCenter().getY()));
+                    p4 = p2.rotate(j, quadrant_origin).scale(factor, getCenter()).translate((int) (-factor * getCenter().getX()), (int) (-factor * getCenter().getY()));
                     g.drawLine(
                             p3.getX(), p3.getY(),
                             p4.getX(), p4.getY()

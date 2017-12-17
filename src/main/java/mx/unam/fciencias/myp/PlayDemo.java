@@ -12,7 +12,7 @@ class PlayDemo {
         panel.setSize(width,height);
         frame.add(panel, BorderLayout.CENTER);
         frame.pack();
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setTitle(panel.title);
         return frame;
     }
@@ -23,13 +23,18 @@ class PlayDemo {
         demos.add(new DemoOne(lines));
         demos.add(new DemoTwo(lines));
         demos.add(new DemoThree());
+        demos.add(new DemoFour());
 
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
         Double normalize = (double) (screenSize.width / demos.size()) / (double) lines;
-        int side = normalize.intValue() * lines - 10;
+        int side = normalize.intValue() * lines;
         for (int i = 0; i < demos.size(); i++) {
-            wrapDemo(demos.get(i), side, side).setLocation(i * side, 0);
+            Demo demo = demos.get(i);
+            JFrame frame = wrapDemo(demo, side, side);
+            frame.setLocation(i * side, 0);
+            if (demo instanceof DemoOne || demo instanceof DemoTwo)
+                frame.setResizable(false);
         }
 
 

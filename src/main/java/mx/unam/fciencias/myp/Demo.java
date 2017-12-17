@@ -8,18 +8,20 @@ public abstract class Demo extends JPanel {
 
     @Override
     public Dimension getPreferredSize() {
-        return new Dimension(getOrigin().getX() * 2, getOrigin().getY() * 2);
+        return new Dimension(getCenter().getX() * 2, getCenter().getY() * 2);
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        draw(g, getOrigin());
+        draw(g);
     }
 
-    ImmutablePoint getOrigin() {
+    ImmutablePoint getCenter() {
         return new ImmutablePoint(getWidth() / 2, getHeight() / 2);
     }
 
-    protected abstract void draw(Graphics g, ImmutablePoint origin);
+    protected abstract ImmutablePoint getOrigin();
+
+    protected abstract void draw(Graphics g);
 }

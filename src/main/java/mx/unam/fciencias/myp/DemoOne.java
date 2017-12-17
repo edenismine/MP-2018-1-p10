@@ -12,8 +12,14 @@ class DemoOne extends Demo {
         this.title = "Drawing curves with lines 1";
     }
 
-    protected void draw(Graphics g, ImmutablePoint origin) {
+    @Override
+    protected ImmutablePoint getOrigin() {
+        return getCenter();
+    }
+
+    protected void draw(Graphics g) {
         // Calculate delta
+        ImmutablePoint origin = getOrigin();
         int delta = origin.getX() / lines;
         ImmutablePoint start = new ImmutablePoint(origin.getX(), origin.getY());
         ImmutablePoint end = new ImmutablePoint(origin.getX(), 0);
