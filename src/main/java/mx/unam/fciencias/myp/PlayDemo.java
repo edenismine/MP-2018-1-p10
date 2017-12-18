@@ -5,7 +5,10 @@ import java.awt.*;
 import java.util.LinkedList;
 
 
-class PlayDemo {
+/**
+ * Main class. Displays the included demos.
+ */
+public class PlayDemo {
     /**
      * This method takes a Demo and wraps it within a JFrame, which is set to
      * the specified dimensions and returned. The returned frame is visible,

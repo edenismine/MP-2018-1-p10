@@ -5,13 +5,14 @@ import java.awt.*;
 
 /**
  * A JPanel with persistent sizing and custom drawings that use
- * {@link ImmutablePoint2D}s to locate important points within the panel.
+ * {@link mx.unam.fciencias.myp.ImmutablePoint2D}s to locate important points
+ * within the panel.
  */
-public abstract class Demo extends JPanel {
+abstract class Demo extends JPanel {
     /**
      * This demo's title.
      */
-    protected String title;
+    String title;
 
     @Override
     public Dimension getPreferredSize() {

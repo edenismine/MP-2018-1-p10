@@ -7,7 +7,7 @@ import java.util.Random;
  * A Demo that draws and shows an image that emulates the one shown in the
  * practice's fourth exercise: a caterpillar.
  */
-public class DemoFour extends Demo {
+class DemoFour extends Demo {
     /**
      * Creates the dynamic caterpillar.
      */

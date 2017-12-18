@@ -6,7 +6,7 @@ import java.awt.*;
  * A Demo that draws and shows an image that emulates the one shown in the
  * practice's third exercise: a chessboard.
  */
-public class DemoThree extends Demo {
+class DemoThree extends Demo {
     /**
      * Creates the chessboard.
      */

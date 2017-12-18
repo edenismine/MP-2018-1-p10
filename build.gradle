@@ -1,3 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'application'
 mainClassName = 'mx.unam.fciencias.myp.PlayDemo'
+javadoc{
+    options.memberLevel = JavadocMemberLevel.PRIVATE
+}
