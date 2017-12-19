@@ -47,31 +47,27 @@ class DemoOne extends Demo {
         ImmutablePoint2D p1, p2, quadrant_center;
         // create color hash map that maps angles to colors
         HashMap<Integer, Color> colorHashMap = new HashMap<>();
+        colorHashMap.put(0, Color.RED);
         colorHashMap.put(90, new Color(200, 100, 100, 185));
         colorHashMap.put(180, new Color(255, 195, 55, 185));
         colorHashMap.put(270, new Color(81, 129, 255, 185));
         // for every quadrant
-        for (int theta = 0; theta <= 360; theta += 90) {
+        for (int theta = 0; theta < 360; theta += 90) {
             // calculate the quadrant's center
             quadrant_center = origin
-                    .translate(
-                            origin.getX() / 2,
-                            -origin.getY() / 2)
+                    .translate(origin.getX() / 2, -origin.getY() / 2)
                     .rotate(theta, origin);
             // draw `lines` lines
             for (int i = 0; i <= lines; i++) {
                 // calculate shift
                 int dif = delta * i;
-                // draw base shape
-                g.setColor(Color.RED);
+                // get base end points translated by delta
                 p1 = start.translate(dif, 0).rotate(theta, origin);
                 p2 = end.translate(0, dif).rotate(theta, origin);
-                g.drawLine(
-                        (int) p1.getX(), (int) p1.getY(),
-                        (int) p2.getX(), (int) p2.getY());
                 // for the quadrant's remaining orientations
-                for (int j = 90; j < 360; j += 90) {
-                    // draw corresponding rotated base shape
+                for (int j = 0; j < 360; j += 90) {
+                    // draw corresponding rotations of the base line around
+                    // the quadrant's center
                     g.setColor(colorHashMap.get(j));
                     p1 = p1.rotate(j, quadrant_center);
                     p2 = p2.rotate(j, quadrant_center);

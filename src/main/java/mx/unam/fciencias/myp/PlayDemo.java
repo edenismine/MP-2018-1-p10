@@ -46,7 +46,8 @@ public class PlayDemo {
 
         Toolkit tk = Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
-        Double normalize = (double) (screenSize.width / demos.size()) / (double) lines;
+        Double normalize = (double) (screenSize.width / demos.size()) /
+                (double) lines;
         int side = normalize.intValue() * lines;
 
         for (int i = 0; i < demos.size(); i++) {

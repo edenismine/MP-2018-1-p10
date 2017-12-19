@@ -15,9 +15,12 @@ out/
 *.iml
 .idea
 .gradle
-.idea/
-.gradle/
 
 
 #NDK
 obj/
+
+# Pandoc
+media/
+pandoc.md
+metadata.yaml

@@ -4,3 +4,11 @@ mainClassName = 'mx.unam.fciencias.myp.PlayDemo'
 javadoc{
     options.memberLevel = JavadocMemberLevel.PRIVATE
 }
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile,
+                'Main-Class': mainClassName
+        )
+    }
+}

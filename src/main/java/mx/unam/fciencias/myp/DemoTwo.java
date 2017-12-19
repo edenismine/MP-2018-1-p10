@@ -51,7 +51,7 @@ class DemoTwo extends Demo {
         colorHashMap.put(90, new Color(143, 12, 28));
         colorHashMap.put(270, new Color(200, 100, 100, 100));
         // for every quadrant rotation by 45 degrees
-        for (int theta = 45 / 2; theta <= 360 + 45 / 2; theta += 45) {
+        for (int theta = 45 / 2; theta < 360 + 45 / 2; theta += 45) {
             // calculate the quadrant's center
             quadrant_center = origin
                     .translate(
