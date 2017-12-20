@@ -30,57 +30,62 @@ where `delta` is calculated by dividing the length of the axes by the
 number of lines to be used. The results of this transformation
 
 The first and second exercises heavily relied on the `ImmutablePoint2D`
-in order to navigate and draw the lines.
+class in order to navigate and draw the lines.
+
+This is a simplified explanation of the drawing process:
+
+1.  First create a baseline.
+2.  Then rotate it around the quadrant’s center several times depending
+    on the requirements
+3.  Finally the resulting figure is rotated around the panel’s center to
+    produce the desired figure.
+
+![The steps of the drawing process, progressing from left to
+right](media/image01.PNG)
+
+![Second demo](media/image02.PNG)
 
 ## Chessboard
 
+Using an `ImmutablePoint2D` to hold the coordinates of the top/left
+corners of the squares, we created the chessboard by continuously
+translating said point seven times to the right before translating it
+downwards to draw the next row, for a total of 8 squares in each of the
+8 rows.
+
+![Third demo](media/image03.PNG)
+
 ## Caterpillar
+
+Lastly, the last demo draws connecting ovals that represent a
+caterpillar, the caterpillar always stays within the panel and it
+changes when the window is resized.
+
+![Fourth demo](media/image04.PNG)
 
 ## Building and running the program
 
 The program can be built using gradle, the most common tasks are
-described bellow, for a full list of available tasks use the *tasks*
-task. If you’re on Linux or Mac then running the following command from
-the project’s main directory will be enough to build and run the
-program: `./gradlew run`. If you’re windows use `gradlew.bat run`
+described bellow, for a full list of available tasks use `./gradlew
+tasks`. If you’re on Linux or Mac then running the following command
+from the project’s main directory will be enough to build and run the
+program: `./gradlew run`. If you’re on windows use `gradlew.bat run`
 instead.
 
 Some of the most common tasks are:
 
-1.  `./gradlew build`, compiles the program to `out/jar/Dog.jar`.
+1.  `./gradlew build`, compiles and creates the outputs of this project.
 2.  `./gradlew javadoc`, generates the program’s documentation and puts
     it inside `doc/`.
-3.  `./gradlew run`, compiles the program, creates the jar and runs the
-    application.
+3.  `./gradlew run`, builds the program and runs the application.
 4.  `./gradlew clean`, deletes all files and folders generated during
     the build process (except the .gradle directory).
-
-## Bibliography
-
-  - [“Operating Systems: Three Easy Pieces (Chapter 7: Scheduling
-    Introduction)” - *Arpaci-Dusseau*,
-    2014](http://pages.cs.wisc.edu/~remzi/OSTEP/cpu-sched.pdf)
-  - [“Semaphore (programming)” - *Wikipedia*,
-    2017](https://en.wikipedia.org/wiki/Semaphore_\(programming\))
-  - [“The Little Book of Semaphores” - *Downey, Allen B.*,
-    2016](http://greenteapress.com/semaphores/)
-  - [“Over de sequentialiteit van procesbeschrijvingen” - *Dijkstra,
-    Edsger W.* 1962 or
-    1963](http://www.cs.utexas.edu/users/EWD/ewd00xx/EWD35.PDF)
-  - [“Dijkstra’s algorithm” - *Wikipedia*,
-    2017](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-  - [“State Design Pattern” - *SourceMaking*,
-    2017](https://sourcemaking.com/design_patterns/state)
 
 ## Acknowledgements
 
 For more information on the tools used to build, create and run this
 program refer to the following links:
 
-  - [Apache Ant](http://ant.apache.org/) was used to create the build
-    script.
-  - [Python](https://www.python.org/) was used for the execution script.
+  - [Gradle](https://gradle.org/) was used to create the build script.
   - [JetBrains’ IntelliJ IDEA](https://www.jetbrains.com/idea/) was used
     as the primary editor.
-  - [Graph Online](http://graphonline.ru/en/) was used to create the
-    directed graph G.
