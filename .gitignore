@@ -21,6 +21,5 @@ out/
 obj/
 
 # Pandoc
-media/
 pandoc.md
 metadata.yaml
